@@ -10,15 +10,15 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="/">主页
+              <a class="nav-link" href="{{ url('welcome/index/home') }}">主页
                 <span class="sr-only">(current)</span>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/help">帮助</a>
+              <a class="nav-link" href="{{ url('welcome/index/help') }}">帮助</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/about">关于</a>
+              <a class="nav-link" href="{{ url('welcome/index/about') }}">关于</a>
             </li>
           </ul>
           <a class="btn btn-outline-success my-2 my-sm-0" href="#">注册</a>
