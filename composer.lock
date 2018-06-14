@@ -4,8 +4,100 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "296bd8a1d28e39d56dcd80ce7be249f3",
+    "content-hash": "ae7aad4a9e24c2ef9641f5c99a324bb9",
     "packages": [
+        {
+            "name": "luoyy/blade",
+            "version": "5.5.28",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/zishang520/blade.git",
+                "reference": "dbe44f5868ef9df2f889c9f3fc5ef081e6f3da22"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/zishang520/blade/zipball/dbe44f5868ef9df2f889c9f3fc5ef081e6f3da22",
+                "reference": "dbe44f5868ef9df2f889c9f3fc5ef081e6f3da22",
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "require": {
+                "php": ">=7.0.0"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "src/helpers.php"
+                ],
+                "psr-4": {
+                    "luoyy\\Blade\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "luoyy",
+                    "email": "zishang520@gmail.com"
+                }
+            ],
+            "description": "an independent version of laravel view template - blade",
+            "homepage": "http://www.luoyy.com",
+            "time": "2018-01-23T04:45:20+00:00"
+        },
+        {
+            "name": "luoyy/think-blade",
+            "version": "3.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/zishang520/think-blade.git",
+                "reference": "ae498e63f26808f0b9bd1c24472c753e6478e9c1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/zishang520/think-blade/zipball/ae498e63f26808f0b9bd1c24472c753e6478e9c1",
+                "reference": "ae498e63f26808f0b9bd1c24472c753e6478e9c1",
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "require": {
+                "luoyy/blade": "^5.5",
+                "php": ">=5.4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    {
+                        "think\\view\\driver\\Blade": "drivers/thinkphp5/Blade.php"
+                    }
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "luoyy",
+                    "email": "zishang520@gmail.com"
+                }
+            ],
+            "description": "think blade view engine",
+            "homepage": "http://www.luoyy.com",
+            "time": "2018-01-23T05:39:00+00:00"
+        },
         {
             "name": "topthink/framework",
             "version": "v5.1.16",
