@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="description" content="在 steamhub 上使用您的数据">
-    <meta name="keywords" content="steamhub，蒸汽人生">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
     <title>@yield('title') -- ThinkPHP 入门教程</title>
     <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
       crossorigin="anonymous">
