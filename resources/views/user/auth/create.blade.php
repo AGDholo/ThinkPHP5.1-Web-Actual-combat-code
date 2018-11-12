@@ -45,7 +45,7 @@
                     </div>
                     <input type="password"
                            class="form-control"
-                           name="password_confirmation">
+                           name="password_confirm">
                 </div>
 
                 <button type="submit"
