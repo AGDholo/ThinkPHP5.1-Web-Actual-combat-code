@@ -4,6 +4,7 @@ namespace app\user\controller;
 
 use think\Controller;
 use think\Request;
+use app\user\model\User;
 
 class Auth extends Controller
 {
@@ -40,9 +41,10 @@ class Auth extends Controller
         $requestData = $request->post();
         $result = $this->validate($requestData, 'app\user\validate\Auth');
         if (true !== $result) {
-            return redirect('auth/create')->with('validate',$result);
+            return redirect('user/auth/create')->with('validate',$result);
         } else {
-            dump($requestData);
+            $user = User::create($requestData);
+            return redirect('user/auth/read')->params(['id' => $user->id]);
         }
     }
 
@@ -54,7 +56,9 @@ class Auth extends Controller
      */
     public function read($id)
     {
-        //
+        $user = User::find($id);
+        $this->assign('user', $user);
+        return $this->fetch();
     }
 
     /**
