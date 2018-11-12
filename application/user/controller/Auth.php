@@ -39,8 +39,11 @@ class Auth extends Controller
     {
         $requestData = $request->post();
         $result = $this->validate($requestData, 'app\user\validate\Auth');
-        if ($result) { dump($requestData); }
-        else { dump($result); }
+        if (true !== $result) {
+            dump($result);
+        } else {
+            dump($requestData);
+        }
     }
 
     /**
