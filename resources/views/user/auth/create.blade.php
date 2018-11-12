@@ -7,8 +7,11 @@
             <h4>注册</h4>
         </div>
         <div class="panel-body">
-            <form method="POST">
-                {:token()}
+            <form method="POST"
+                  action="{{ url('save') }}">
+
+                <input type="hidden" name="__token__" value="{{ $token }}" />
+
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
                         <span class="input-group-text">用户名</span>
@@ -22,7 +25,7 @@
                     <div class="input-group-prepend">
                         <span class="input-group-text">邮箱</span>
                     </div>
-                    <input type="text"
+                    <input type="email"
                            class="form-control"
                            name="email">
                 </div>
@@ -31,7 +34,7 @@
                     <div class="input-group-prepend">
                         <span class="input-group-text">密码</span>
                     </div>
-                    <input type="text"
+                    <input type="password"
                            class="form-control"
                            name="password">
                 </div>
@@ -40,7 +43,7 @@
                     <div class="input-group-prepend">
                         <span class="input-group-text">确认密码</span>
                     </div>
-                    <input type="text"
+                    <input type="password"
                            class="form-control"
                            name="password_confirmation">
                 </div>
