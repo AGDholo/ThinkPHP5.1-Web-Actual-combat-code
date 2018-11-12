@@ -15,7 +15,7 @@ class Auth extends Validate
 	protected $rule = [
         '__token__' => 'token',
         'name|名字'  =>  'require|max:50',
-        'email|邮件' =>  'email|unique:users|max:255',
+        'email|邮件' =>  'require|email|unique:users|max:255',
         'password|密码' => 'require|confirm|min:6'
     ];
     
