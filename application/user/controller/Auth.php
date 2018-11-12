@@ -40,7 +40,7 @@ class Auth extends Controller
         $requestData = $request->post();
         $result = $this->validate($requestData, 'app\user\validate\Auth');
         if (true !== $result) {
-            dump($result);
+            return redirect('auth/create')->with('validate',$result);
         } else {
             dump($requestData);
         }

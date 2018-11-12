@@ -6,6 +6,11 @@
         <div class="panel-heading mb-3">
             <h4>注册</h4>
         </div>
+        @if(session('validate'))
+            <div class="alert alert-warning" role="alert">
+                {{ session('validate') }}
+            </div>
+        @endif
         <div class="panel-body">
             <form method="POST"
                   action="{{ url('save') }}">
