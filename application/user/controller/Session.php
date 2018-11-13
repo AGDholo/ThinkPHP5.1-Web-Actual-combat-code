@@ -26,9 +26,14 @@ class Session extends Controller
      */
     public function create()
     {
-        $token = $this->request->token('__token__', 'sha1');
-        $this->assign('token', $token);
-        return $this->fetch();
+        if (SessionFacade::has('user')) {
+            $user = SessionFacade::get('user');
+            return redirect('user/auth/read')->params(['id' => $user->id]);
+        } else {
+            $token = $this->request->token('__token__', 'sha1');
+            $this->assign('token', $token);
+            return $this->fetch();
+        }
     }
 
     /**
@@ -95,7 +100,11 @@ class Session extends Controller
      */
     public function delete($id)
     {
-        SessionFacade::delete('user');
-        return redirect('user/session/create')->with('validate','您已退出');
+        if (SessionFacade::has('user') && $id === SessionFacade::get('user.id')) {
+            SessionFacade::delete('user');
+            return redirect('user/session/create')->with('validate','您已退出');
+        } else {
+            return '非法请求';
+        }
     }
 }
