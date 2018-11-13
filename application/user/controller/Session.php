@@ -95,6 +95,7 @@ class Session extends Controller
      */
     public function delete($id)
     {
-        //
+        SessionFacade::delete('user');
+        return redirect('user/session/create')->with('validate','您已退出');
     }
 }

@@ -32,11 +32,33 @@
             </li>
           </ul>
           @if(session('user'))
-          <a class="btn btn-outline-success my-2 my-sm-0"
-             href="{{ url('user/auth/read', ['id' => session('user.id')]) }}">
-            {{ session('user.name') }}
-          </a>
-          @else if
+          <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle"
+                    type="button"
+                    id="dropdownMenuButton"
+                    data-toggle="dropdown"
+                    aria-haspopup="true"
+                    aria-expanded="false">
+              {{ session('user.name') }}
+            </button>
+            <div class="dropdown-menu"
+                 aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item"
+                 href="{{ url('user/auth/read', ['id' => session('user.id')]) }}">个人主页</a>
+              <a class="dropdown-item">
+                <form action="{{ url('user/session/delete', ['id' => session('user.id')]) }}"
+                      method="POST">
+                  <input type="hidden"
+                         name="__token__"
+                         value="{{ $token }}" />
+                  <button class="btn btn-block"
+                          type="submit"
+                          name="button">退出</button>
+                </form>
+              </a>
+            </div>
+          </div>
+          @else
           <a class="btn btn-outline-success my-2 my-sm-0"
              href="{{ url('user/auth/create') }}">注册</a>
           <a class="btn btn-outline-success my-2 my-sm-0"

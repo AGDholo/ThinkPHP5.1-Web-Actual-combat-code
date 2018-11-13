@@ -65,7 +65,11 @@ class Auth extends Controller
     {
         if (Session::has('user')) {
             $user = User::find($id);
-            $this->assign('user', $user);
+            $token = $this->request->token('__token__', 'sha1');
+            $this->assign([
+                'user' => $user,
+                'token' => $token
+            ]);
             return $this->fetch();
         } else {
             return redirect('user/session/create')->with('validate','请先登录');
