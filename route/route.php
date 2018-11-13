@@ -13,3 +13,4 @@ Route::get('/help', 'welcome/index/help');
 Route::get('/about', 'welcome/index/about');
 
 Route::resource('auth', 'user/auth');
+Route::resource('session', 'user/session');
