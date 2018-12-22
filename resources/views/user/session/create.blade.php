@@ -11,11 +11,16 @@
                 {{ session('validate') }}
             </div>
         @endif
+        @if(session('user'))
+            <div class="alert alert-success" role="alert">
+                您已登入账户: {{ session('user')->name }}
+            </div>
+        @endif
         <div class="panel-body">
             <form method="POST"
                   action="{{ url('save') }}">
 
-                <input type="hidden" name="__token__" value="{{ $token }}" />
+                @php echo token() @endphp
 
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">

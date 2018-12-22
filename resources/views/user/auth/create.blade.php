@@ -15,7 +15,7 @@
             <form method="POST"
                   action="{{ url('save') }}">
 
-                <input type="hidden" name="__token__" value="{{ $token }}" />
+                @php echo token() @endphp
 
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
