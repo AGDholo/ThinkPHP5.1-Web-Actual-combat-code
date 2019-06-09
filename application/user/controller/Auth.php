@@ -80,7 +80,15 @@ class Auth extends Controller
 	 */
 	public function edit($id)
 	{
-		//
+		$user_id = Session::get('user.id');
+		if ($user_id !== $id) {
+			return redirect('user/auth/edit', ['id' => $user_id]);
+		}
+		$user = User::find($user_id);
+		$this->assign([
+			'user' => $user,
+		]);
+		return $this->fetch();
 	}
 
 	/**
@@ -92,7 +100,22 @@ class Auth extends Controller
 	 */
 	public function update(Request $request, $id)
 	{
-		//
+		$user_id = Session::get('user.id');
+		
+		if ($user_id !== $id) {
+			return redirect('user/auth/edit', ['id' => $user_id])->with('validate', '非法操作');
+		}
+		$requestData = $request->put();
+		$result = $this->validate($requestData, 'app\user\validate\UpdateUser');
+
+		if (true !== $result) {
+			return redirect('user/auth/edit', ['id' => $user_id])->with('validate', $result);
+		} else {
+			$name = $requestData['name'];
+			User::where('id', $user_id)->update(['name' => $name]);
+			Session::set('user.name', $name);
+			return redirect('user/auth/edit', ['id' => $user_id])->with('validate', '修改成功');
+		}
 	}
 
 	/**
