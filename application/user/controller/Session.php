@@ -10,7 +10,7 @@ use app\user\model\User;
 class Session extends Controller
 {
 	protected $middleware = [
-		'Auth' => [
+		'UserAuthorize' => [
 			'except' => [
 				'create',
 				'save'
