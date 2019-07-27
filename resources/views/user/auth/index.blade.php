@@ -1,18 +1,14 @@
 @extends('_layout.default')
 @section('title', '查看所有用户')
 @section('content')
-<div class="offset-md-2 col-md-8">
-  <h2 class="mb-4 text-center">
-    所有用户
-  </h2>
-
+<div>
   <div class="list-group list-group-flush">
     @foreach ($users as $user)
     <div class="list-group-item">
       <a href="{{ url('user/auth/read', ['id' => $user->id]) }}">
         {{ $user->name }}
       </a>
-      @if ($god)
+      @if ($god && !$user->god)
       <form action="{{ url('user/auth/delete', ['id' => $user->id]) }}" method="post" class="float-right">
         @php echo token() @endphp
         <input type="hidden" name="_method" value="DELETE">

@@ -14,7 +14,9 @@ class Auth extends Controller
 		'UserAuthorize' => [
 			'except' => [
 				'create',
-				'save'
+				'save',
+				'index',
+				'read'
 			]
 		],
 		'GodAuthorize' => [
@@ -78,6 +80,7 @@ class Auth extends Controller
 		$user = User::find($id);
 		$this->assign([
 			'user' => $user,
+			'session' => Session::get('user')
 		]);
 		return $this->fetch();
 	}
