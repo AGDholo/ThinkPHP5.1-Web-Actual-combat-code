@@ -12,6 +12,13 @@
       <a href="{{ url('user/auth/read', ['id' => $user->id]) }}">
         {{ $user->name }}
       </a>
+      @if ($god)
+      <form action="{{ url('user/auth/delete', ['id' => $user->id]) }}" method="post" class="float-right">
+        @php echo token() @endphp
+        <input type="hidden" name="_method" value="DELETE">
+        <button type="submit" class="btn btn-sm btn-danger delete-btn">删除</button>
+      </form>
+      @endif
     </div>
     @endforeach
   </div>

@@ -1,6 +1,7 @@
 <?php
 
 use think\migration\Seeder;
+use app\user\model\User;
 
 class Users extends Seeder
 {
@@ -25,5 +26,10 @@ class Users extends Seeder
         }
 
         $this->table('users')->insert($data)->save();
+
+        // allowField(false) 屏蔽 Model 中设置的保护字段 $field
+        User::get(1)->allowField(false)->save([
+            'god' => true
+        ]);
     }
 }

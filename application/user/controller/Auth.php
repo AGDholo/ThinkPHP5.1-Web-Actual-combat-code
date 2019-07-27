@@ -6,6 +6,7 @@ use think\Controller;
 use think\Request;
 use think\facade\Session;
 use app\user\model\User;
+use think\facade\Hook;
 
 class Auth extends Controller
 {
@@ -16,6 +17,11 @@ class Auth extends Controller
 				'save'
 			]
 		],
+		'GodAuthorize' => [
+			'only' => [
+				'delete'
+			]
+		]
 	];
 
 	/**
@@ -26,7 +32,8 @@ class Auth extends Controller
 	public function index()
 	{
 		$this->assign([
-			'users' => User::paginate(10)
+			'users' => User::paginate(10),
+			'god' => Hook::exec('app\\behavior\\GodPolicy')
 		]);
 		return $this->fetch();
 	}
@@ -120,6 +127,7 @@ class Auth extends Controller
 	 */
 	public function delete($id)
 	{
-		//
+		User::where('id', $id)->where('god', false)->delete();
+		return redirect('user/auth/index');
 	}
 }
