@@ -25,7 +25,10 @@ class Auth extends Controller
 	 */
 	public function index()
 	{
-		//
+		$this->assign([
+			'users' => User::paginate(10)
+		]);
+		return $this->fetch();
 	}
 
 	/**
