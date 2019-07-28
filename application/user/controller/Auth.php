@@ -77,7 +77,10 @@ class Auth extends Controller
 	 */
 	public function read($id)
 	{
-		$user = User::find($id);
+		$user = User::with(['posts' => function ($query) {
+			$query->limit(8);
+			$query->order('created_at', 'desc');
+		}])->find($id);
 		$this->assign([
 			'user' => $user,
 			'session' => Session::get('user')
