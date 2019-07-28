@@ -6,6 +6,12 @@ use think\Model;
 
 class User extends Model
 {
+	// 正向关联 Post 模型
+	public function posts()
+	{
+		return $this->hasMany('Post', 'user_id');
+	}
+
 	// 定义运行操作的字段
 	protected $field = ['name', 'email', 'password', 'avatar'];
 
