@@ -14,3 +14,5 @@ Route::get('/about', 'welcome/index/about');
 
 Route::resource('auth', 'user/auth');
 Route::resource('session', 'user/session');
+
+Route::resource('post', 'user/post')->only(['save']);

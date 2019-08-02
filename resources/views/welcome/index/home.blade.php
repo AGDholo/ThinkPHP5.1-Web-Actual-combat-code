@@ -1,9 +1,17 @@
-@extends('_layout.default') 
-@section('title', '主页') 
+@extends('_layout.default')
+@section('title', '主页')
 @section('content')
-<section class="jumbotron text-center">
-    <div class="container">
-        <h1 class="jumbotron-heading">欢迎你，我的朋友</h1>
+<div>
+  <form action="{{ url('user/post/save') }}" method="POST">
+    @php echo token() @endphp
+
+    <div class="form-group">
+      <textarea class="form-control" rows="3" name="content"></textarea>
     </div>
-</section>
+
+    <div class="text-right">
+      <button type="submit" class="btn btn-primary mt-3">发布</button>
+    </div>
+  </form>
+</div>
 @stop
