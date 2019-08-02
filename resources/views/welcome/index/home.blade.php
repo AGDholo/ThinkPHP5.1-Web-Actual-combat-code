@@ -14,4 +14,21 @@
     </div>
   </form>
 </div>
+
+<div>
+  <div class="list-group list-group-flush">
+    @foreach ($posts as $post)
+    <div class="list-group-item">
+      <div>
+        {{ $post->user->name }} -- {{ $post->created_at }}
+      </div>
+      <div>
+        {{ $post->content }}
+      </div>
+    </div>
+    @endforeach
+  </div>
+
+  {!! $posts !!}
+</div>
 @stop
